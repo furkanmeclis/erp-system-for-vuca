@@ -1,0 +1,200 @@
+@import url('https://fonts.googleapis.com/css2?family=Dosis:wght@200;300;400;500;600;700;800&display=swap');
+
+:root {
+    --filigranUrl: url("/uploads/images/default.png");
+}
+
+/* Container ve Row */
+.ckymotoCatalogContainer {
+    /* Bootstrap .container Styles */
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.ckymotoCatalogRow {
+    margin: 0 !important;
+}
+
+/* Products Grid */
+.ckymotoCatalogProductsGrid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-gap: 1rem;
+    margin: 0 auto;
+    width: 210mm;
+}
+
+/* Title */
+.ckymotoCatalogTitle {
+    grid-column: 1 / span 6;
+    text-align: center;
+    font-size: 35px;
+    font-weight: 700;
+    padding: 15px 0;
+    background: #d5d5d5;
+    color: black;
+    border-radius: 5px;
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.ckymotoCatalogTitle img {
+    height: 50px;
+    margin-right: 10px;
+    margin-left: 10px;
+    width: auto;
+    object-fit: contain;
+    filter: drop-shadow(0 0 0 black);
+}
+
+/* Product */
+.ckymotoCatalogProduct {
+    border-radius: 5px;
+    margin-bottom: 25px;
+    min-height: 400px;
+    box-sizing: border-box;
+    position: relative;
+    font-family: 'Dosis', sans-serif;
+    width: 100%;
+}
+
+/* Image Container */
+.ckymotoCatalogImageContainer {
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 230px;
+}
+
+/* Product Image */
+.ckymotoCatalogProduct img {
+    width: 100%;
+    height: 230px !important;
+    object-fit: contain;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    border: 1px solid #ccc;
+    border-bottom: none;
+}
+
+.ckymotoCatalogProduct .ckymotoCatalogImage {
+    width: 100%;
+    height: 230px !important;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    border: 1px solid black;
+    border-bottom: none;
+    background-image: var(--image);
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* Filigran */
+.ckymotoCatalogProduct::before {
+    content: "";
+    display: var(--filigranDisplay);
+    top: 0;
+    left: 5%;
+    height: 230px;
+    width: 90%;
+    background-image: var(--filigranUrl);
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    filter: drop-shadow(3px 3px 0 black);
+    opacity: 0.10;
+    position: absolute;
+    transform: rotate(-30deg);
+    overflow: hidden;
+}
+
+.ckymotoCatalogNoFiligran::before {
+    display: none;
+}
+
+/* Even odd usage example */
+.ckymotoCatalogProduct:nth-child(even)::before {
+    transform: rotate(30deg);
+}
+
+/* Product Name */
+.ckymotoCatalogProductName {
+    min-height: 110px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-weight: 700;
+    background: var(--nameBgColor);
+    color: var(--nameColor);
+    font-size: var(--nameSize);
+    padding: 2px 2px;
+    border: 1px solid black;
+    border-bottom: none;
+    border-top: none;
+}
+
+/* SKU Grid ve Price Grid */
+.ckymotoCatalogSkuGrid, .ckymotoCatalogPriceGrid {
+    min-height: 30px;
+    width: 100%;
+    background-color: black;
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+    color: white;
+}
+
+.ckymotoCatalogPriceGrid {
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+
+/* SKU ve Price Label / Value */
+.ckymotoCatalogSkuLabel, .ckymotoCatalogPriceLabel {
+    width: 100%;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom-left-radius: 5px;
+    margin-right: 10px;
+}
+
+.ckymotoCatalogSkuValue, .ckymotoCatalogPriceValue {
+    height: 100%;
+    width: 100%;
+    font-weight: bolder;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom-right-radius: 5px;
+}
+
+.ckymotoCatalogSkuValue {
+    color: var(--skuColor);
+    font-size: var(--skuSize);
+    font-weight: bolder;
+}
+
+.ckymotoCatalogPriceValue {
+    color: var(--priceColor);
+    font-size: var(--priceSize);
+    font-weight: bolder;
+}
+
+/* None ve Hidden Price */
+.ckymotoCatalogNone {
+    visibility: hidden;
+    display: none;
+}
+
+.ckymotoCatalogHiddenPrice {
+    filter: blur(3px);
+    user-select: none;
+    text-decoration: line-through;
+}
